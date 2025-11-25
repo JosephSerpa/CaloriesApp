@@ -1,0 +1,5 @@
+{
+  "name": "NutriScan",
+  "description": "Instantly retrieve detailed nutritional information and calorie counts for any food item using Gemini AI.",
+  "requestFramePermissions": []
+}
