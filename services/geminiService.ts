@@ -1,9 +1,11 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { NutritionData } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 export const analyzeFood = async (foodQuery: string): Promise<NutritionData> => {
+  // Initialize the client inside the function to prevent top-level module crashes
+  // if process.env.API_KEY is missing or invalid during the initial app load.
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+
   try {
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
